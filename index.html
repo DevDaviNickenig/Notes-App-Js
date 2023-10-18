@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
     <title>Notes App</title>
 </head>
 <body>
@@ -14,15 +16,17 @@
                 <div class="notas__lista-item">
                     <div class="notas__pequeno-titulo"> Nota Qualquer</div>
                     <div class="notas__pequeno-corpo">Esse é o corpo da nota na barra lateral</div>
-                    <div class="notas__pequeno-atualizar">Quarta 15:29</div>
-                </div>
+                    <div class="notas__pequeno-atualizado">Quarta 15:29</div>
+                </div>               
             </div>
         </div>
-    </div>
-    <!-- EDITOR DE NOTAS -->
-    <div class="nota__editor">
+        <!-- EDITOR DE NOTAS -->
+    <div class="notas__editor">
         <input type="text" class="notas__titulo" placeholder="Digite o Título">
-        <textarea name="nota__editor-corpo" id="" cols="30" rows="10">Esse é o corpo das notas</textarea>
+        <textarea name="notas__editor-corpo">Esse é o corpo das notas</textarea>
     </div>
+    </div>
+    
+    <script src="script.js"></script>
 </body>
 </html>
