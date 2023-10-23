@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="reset.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
     <title>Notes App</title>
 </head>
 <body>
     <!-- LATERAL DO APP -->
-    <div class="notas">
+    <div class="notas" id="app">
         <div class="barra__lateral">
-            <button class="adicionar__nota">Add Note</button>
+            <button class="adicionar__nota">Adicionar Nota</button>
             <div class="notas__lista">
-                <div class="notas__lista-item">
+                <div class="notas__lista-item notas__lista-item--selecionado">
                     <div class="notas__pequeno-titulo"> Nota Qualquer</div>
                     <div class="notas__pequeno-corpo">Esse é o corpo da nota na barra lateral</div>
                     <div class="notas__pequeno-atualizado">Quarta 15:29</div>
@@ -27,6 +27,6 @@
     </div>
     </div>
     
-    <script src="script.js"></script>
+    <script src="./js/main.js" type="module"></script>
 </body>
 </html>
