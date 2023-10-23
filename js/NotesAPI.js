@@ -9,10 +9,18 @@ export default class NotesAPI {
 
     static salvarNotas(notasParaSalvar) {
         const notas = NotesAPI.pegarNotas();
-
-        notasParaSalvar.id = Math.floor(Math.random() * 100000);
-        notasParaSalvar.updated = new Date().toISOString();
-        notas.push(notasParaSalvar);
+        const notaSalva = notas.find(nota => nota.id == notasParaSalvar.id);
+        //atualizar
+        if (notaSalva) {
+            notaSalva.title = notasParaSalvar.title;
+            notaSalva.body = notasParaSalvar.body;
+            notaSalva.updated = new Date().toISOString();
+        } else {
+            notasParaSalvar.id = Math.floor(Math.random() * 1000);
+            notasParaSalvar.updated = new Date().toISOString();
+            notas.push(notasParaSalvar);
+        }
+        
         localStorage.setItem("appnotas-notas", JSON.stringify(notas));
     }
 

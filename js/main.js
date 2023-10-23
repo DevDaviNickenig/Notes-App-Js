@@ -1,7 +1,8 @@
 import NotesAPI from "./notesAPi.js";
 
 NotesAPI.salvarNotas({
-    title: "Nova Nota",
+    id: 497,
+    title: "Nova Nota caraho!",
     body: "sou uma nota nova"
 });
 
