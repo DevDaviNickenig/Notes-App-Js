@@ -25,6 +25,9 @@ export default class NotesAPI {
     }
 
     static deletarNota(id) {
+        const notas = NotesAPI.pegarNotas();
+        const novasNotas = notas.filter(nota => nota.id != id);
 
+        localStorage.setItem("appnotas-notas", JSON.stringify(novasNotas));
     }
 }
