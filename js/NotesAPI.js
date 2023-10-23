@@ -11,9 +11,9 @@ export default class NotesAPI {
         const notas = NotesAPI.pegarNotas();
 
         notasParaSalvar.id = Math.floor(Math.random() * 100000);
-        notasParaSalvar.updated = new Date().toISOString;
+        notasParaSalvar.updated = new Date().toISOString();
         notas.push(notasParaSalvar);
-        localStorage.setItem("notesapp-notes", JSON.stringify(notas));
+        localStorage.setItem("appnotas-notas", JSON.stringify(notas));
     }
 
     static deletarNota(id) {
