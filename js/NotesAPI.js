@@ -1,33 +1,33 @@
 export default class NotesAPI {
-    static pegarNotas() {
-        const notas = JSON.parse(localStorage.getItem("appnotas-notas") || "[]");
+  static pegarNotas() {
+    const notas = JSON.parse(localStorage.getItem("appnotas-notas") || "[]");
 
-        return notas.sort((a, b) => {
-            return new Date(a.updated) > new Date(b.updated) ? -1 : 1;
-        });
+    return notas.sort((a, b) => {
+      return new Date(a.updated) > new Date(b.updated) ? -1 : 1;
+    });
+  }
+
+  static salvarNotas(notasParaSalvar) {
+    const notas = NotesAPI.pegarNotas();
+    const notaSalva = notas.find((nota) => nota.id == notasParaSalvar.id);
+    //atualizar
+    if (notaSalva) {
+      notaSalva.title = notasParaSalvar.title;
+      notaSalva.body = notasParaSalvar.body;
+      notaSalva.updated = new Date().toISOString();
+    } else {
+      notasParaSalvar.id = Math.floor(Math.random() * 1000);
+      notasParaSalvar.updated = new Date().toISOString();
+      notas.push(notasParaSalvar);
     }
 
-    static salvarNotas(notasParaSalvar) {
-        const notas = NotesAPI.pegarNotas();
-        const notaSalva = notas.find(nota => nota.id == notasParaSalvar.id);
-        //atualizar
-        if (notaSalva) {
-            notaSalva.title = notasParaSalvar.title;
-            notaSalva.body = notasParaSalvar.body;
-            notaSalva.updated = new Date().toISOString();
-        } else {
-            notasParaSalvar.id = Math.floor(Math.random() * 1000);
-            notasParaSalvar.updated = new Date().toISOString();
-            notas.push(notasParaSalvar);
-        }
-        
-        localStorage.setItem("appnotas-notas", JSON.stringify(notas));
-    }
+    localStorage.setItem("appnotas-notas", JSON.stringify(notas));
+  }
 
-    static deletarNota(id) {
-        const notas = NotesAPI.pegarNotas();
-        const novasNotas = notas.filter(nota => nota.id != id);
+  static deletarNota(id) {
+    const notas = NotesAPI.pegarNotas();
+    const novasNotas = notas.filter((nota) => nota.id != id);
 
-        localStorage.setItem("appnotas-notas", JSON.stringify(novasNotas));
-    }
+    localStorage.setItem("appnotas-notas", JSON.stringify(novasNotas));
+  }
 }
